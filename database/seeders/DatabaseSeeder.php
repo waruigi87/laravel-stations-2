@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Practice;
+use App\Models\Movie;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,8 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Practice::factory(10)->create();
+        Movie::factory(10)->create(); // Assuming you have a Movie factory
+        // ここでシートマスタを登録
         $this->call([
-            // ここに Seeder を追加する
+            SheetSeeder::class,
         ]);
     }
 }
